@@ -60,7 +60,7 @@ jobs:
         working-directory: ./immortalwrt-mt798x
         run: |
           echo -e "$(nproc) thread build."
-          make -j$(nproc) V=s
+          make -j$(nproc)
 
       - name : Upload artifact
         uses: actions/upload-artifact@v4
