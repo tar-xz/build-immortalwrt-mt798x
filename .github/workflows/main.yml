@@ -47,6 +47,7 @@ jobs:
 
       - name: Setup tmate session
         uses: mxschmitt/action-tmate@v3
+        timeout-minutes: 360
         with:
           sudo: true
           install-dependencies: true
@@ -59,6 +60,7 @@ jobs:
 
       - name: Build firmware
         working-directory: ./immortalwrt-mt798x
+        timeout-minutes: 360
         run: |
           echo -e "$(nproc) thread build."
           make -j$(nproc)
