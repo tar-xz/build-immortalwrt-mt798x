@@ -46,7 +46,11 @@ jobs:
 
       - name: Setup tmate session
         uses: mxschmitt/action-tmate@v3
-        
+        with:
+          sudo: false
+          install-dependencies: true
+          limit-access-to-actor: false
+
       - name: Download package
         working-directory: ./immortalwrt-mt798x
         run: |
