@@ -8,21 +8,10 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Maximize build space
-        uses: easimon/maximize-build-space@v10
-        with:
-          remove-dotnet: true
-          remove-android: true
-          remove-haskell: true
-          remove-codeql: true
-          remove-docker-images: true
-
       - name: Setup dependencies
         env:
           DEBIAN_FRONTEND: noninteractive
         run: |
-          export LC_ALL="en_US.UTF-8"
-          sudo dpkg-reconfigure locales
           sudo apt-get update -y
           sudo apt-get full-upgrade -y
           sudo apt-get install -y ack antlr3 asciidoc autoconf automake autopoint binutils bison build-essential \
@@ -32,6 +21,15 @@ jobs:
             libssl-dev libtool lld lldb lrzsz mkisofs msmtp nano ninja-build p7zip p7zip-full patch pkgconf python2.7 \
             python3 python3-pip python3-ply python3-docutils qemu-utils re2c rsync scons squashfs-tools subversion swig \
             texinfo uglifyjs upx-ucl unzip vim wget xmlto xxd zlib1g-dev
+
+      - name: Maximize build space
+        uses: easimon/maximize-build-space@v10
+        with:
+          remove-dotnet: true
+          remove-android: true
+          remove-haskell: true
+          remove-codeql: true
+          remove-docker-images: true
 
       - name: Clone source code
         env: 
