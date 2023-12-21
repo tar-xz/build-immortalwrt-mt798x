@@ -1,7 +1,7 @@
 # build-immortalwrt-mt798x
 Build ImmortalWrt-mt798x with GitHub Actions
 
-## How to use
+## How To Use
 1. fork this repo
 2. run workflow under `Actions` tab
 3. wait until the ssh info shows up
